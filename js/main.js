@@ -1,6 +1,6 @@
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000000000005 );
-var loaded_system = "idSol";
+var loaded_system = "";
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.getElementById('parent_div').appendChild( renderer.domElement );
@@ -12,6 +12,11 @@ var starMaterial = new THREE.MeshBasicMaterial({
 });
 var starField = new THREE.Mesh(starGeometry, starMaterial);
 scene.add(starField);
+const light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
+scene.add( light );
+
+
+
 for(var i = 0; i < planets.length; i++){
 	var geometry = new THREE.SphereGeometry(planets[i].radius,32,24);
 	var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
@@ -28,8 +33,6 @@ for(var i = 0; i < planets.length; i++){
 }
 
 
-const light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
-scene.add( light );
 
 camera.position.z = 149600000000 + 12756000;
 
@@ -42,16 +45,18 @@ window.onkeydown = function(e) { pressed_keys[e.keyCode] = true; }
 var tick = (new Date()).getTime();
 var tick_count = 0;
 
+
+
 function animate() {
 	requestAnimationFrame( animate );
 
+  if(app.current_system != loaded_system){
+    //dump and load all planets/stars/moons/satellites
+  }
 	var tick2 = (new Date()).getTime();
 	if(tick2 > tick){
 		tick_count++;
 
-    if(loaded_system != app.current_system){
-      //load the new system
-    }
 
 		//pitch up
 		if(pressed_keys["83"]){
