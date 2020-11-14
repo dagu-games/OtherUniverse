@@ -1,0 +1,61 @@
+up - t
+down - g
+left - z
+right - c
+throttle up - r
+throttle down - f
+
+pitch up - s
+pitch down - w
+yaw left - a
+yaw right - d
+roll left - q
+roll right - e
+
+
+
+
+spawn 10 planets with accurate distances and different colors for each
+
+Mercury
+57900000000
+4878000
+
+Venus
+108160000000
+12104000
+
+Earth
+149600000000
+12756000
+
+Mars
+227936640000
+6794000
+
+Jupiter
+778369000000
+142984000
+
+Saturn
+1427034000000
+120536000
+
+Uranus
+2870658186000
+51118000
+
+Neptune
+4496976000000
+49532000
+
+
+Sun
+1392700000
+
+
+
+
+orbital days to radians per ms
+
+(2*PI)/(days * 86400000)
